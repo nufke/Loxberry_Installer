@@ -199,7 +199,7 @@ if [ ! -z $BRANCH ]; then
 else
 	RELEASEJSON=`curl -s \
 		-H "Accept: application/vnd.github+json" \
-		https://api.github.com/repos/mschlenstedt/Loxberry/releases/$TARGETRELEASE`
+		https://api.github.com/repos/nufke/Loxberry/releases/$TARGETRELEASE`
 
 	LBVERSION=$(echo $RELEASEJSON | jq -r ".tag_name")
 	LBNAME=$(echo $RELEASEJSON | jq -r ".name")
@@ -232,7 +232,7 @@ mkdir -p $LBHOME
 cd $LBHOME
 
 if [ ! -z $BRANCH ]; then
-	git clone https://github.com/mschlenstedt/Loxberry.git -b $BRANCH
+	git clone https://github.com/nufke/Loxberry.git -b $BRANCH
 	if [ ! -d $LBHOME/Loxberry ]; then
 		FAIL "Could not download LoxBerry sources.\n"
 		exit 1
